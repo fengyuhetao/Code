@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<!-- 下一段代码不是注释，仅仅IE支持 
+	意思：如果IE的版本小于IE9，就加载以下两个js文件 -->
+	<!-- [if lt IE 9]>
+		<script type="text/javascript" src= "//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script type="text/javascript" src= "//cdn.bootcss.com/respond.js/1.4.2/html5shiv.min.js"></script>
+	<![endif]-->
+	<title>bootstrap</title>
+</head>
+<body style="padding: 50px; background-color: #ccc">
+	<!-- 栅格系统必须放在.container 或 .container-fluid -->
+	<div class="container" style= "padding: 50px; background-color: #fff">
+		<div class="row">
+		<!-- 如何列数超过12列，则会自动换行，如果低于12列，则无所谓 -->
+		<!-- 
+			列偏移 
+			也就是指：一个栏向右偏移多少个列。
+			.col-md-offset-*
+		-->
+		<!--
+		    列嵌套
+			
+		-->
+			<div class="col-md-3 col-md-offset-3" style="border: 1px solid black">
+				<div class="row">
+					<div class="col-md-3" style="border: 1px solid red">
+						例：一个盒子的 margin 为 20px，border 为 1px，padding 为 10px，content 的宽为 200px、高为 50px，假如用标准 w3c 盒子模型解释，那么这个盒子需要占据的位置为：宽 20*2+1*2+10*2+200=262px、高 20*2+1*2*10*2+50=112px，盒子的实际大小为：宽 1*2+10*2+200=222px、高 1*2+10*2+50=72px；假如用ie 盒子模型，那么这个盒子需要占据的位置为：宽 20*2+200=240px、高 20*2+50=70px，盒子的实际大小为：宽 
+					</div>
+					<div class="col-md-9" style="border: 1px solid red; height: 100px; overflow: hidden;">
+						200px、高 50px。
+　　那应该选择哪中盒子模型呢？当然是“标准 w3c 盒子模型”了。怎么样才算是选择了“标准 w3c 盒子模型”呢？很简单，就是在网页的顶部加上 doctype 声明。假如不加 doctype 声明，那么各个浏览器会根据自己的行为去理解网页，即 ie 浏览器会采用 ie 盒子模型去解释你的盒子，而 ff 会采用标准 w3c 盒子模型解释你的盒子，所以网页在不同的浏览器中就显示的不一样了。反之，假如加上了 doctype 声明，那么所有浏览器都会采用标准 w3c 盒子模型去解释你的盒子，网页就能在各个浏览器中显示一致了。
+					</div>
+				</div>
+			</div>
+				
+			<div class="col-md-3" style="border: 1px solid black">
+			例：一个盒子的 margin 为 20px，border 为 1px，padding 为 10px，content 的宽为 200px、高为 50px，假如用标准 w3c 盒子模型解释，那么这个盒子需要占据的位置为：宽 20*2+1*2+10*2+200=262px、高 20*2+1*2*10*2+50=112px，盒子的实际大小为：宽 1*2+10*2+200=222px、高 1*2+10*2+50=72px；假如用ie 盒子模型，那么这个盒子需要占据的位置为：宽 20*2+200=240px、高 20*2+50=70px，盒子的实际大小为：宽 200px、高 50px。
+　　那应该选择哪中盒子模型呢？当然是“标准 w3c 盒子模型”了。怎么样才算是选择了“标准 w3c 盒子模型”呢？很简单，就是在网页的顶部加上 doctype 声明。假如不加 doctype 声明，那么各个浏览器会根据自己的行为去理解网页，即 ie 浏览器会采用 ie 盒子模型去解释你的盒子，而 ff 会采用标准 w3c 盒子模型解释你的盒子，所以网页在不同的浏览器中就显示的不一样了。反之，假如加上了 doctype 声明，那么所有浏览器都会采用标准 w3c 盒子模型去解释你的盒子，网页就能在各个浏览器中显示一致了。
+			</div>
+			<div class="col-md-3" style="border: 1px solid black">
+			例：一个盒子的 margin 为 20px，border 为 1px，padding 为 10px，content 的宽为 200px、高为 50px，假如用标准 w3c 盒子模型解释，那么这个盒子需要占据的位置为：宽 20*2+1*2+10*2+200=262px、高 20*2+1*2*10*2+50=112px，盒子的实际大小为：宽 1*2+10*2+200=222px、高 1*2+10*2+50=72px；假如用ie 盒子模型，那么这个盒子需要占据的位置为：宽 20*2+200=240px、高 20*2+50=70px，盒子的实际大小为：宽 200px、高 50px。
+　　那应该选择哪中盒子模型呢？当然是“标准 w3c 盒子模型”了。怎么样才算是选择了“标准 w3c 盒子模型”呢？很简单，就是在网页的顶部加上 doctype 声明。假如不加 doctype 声明，那么各个浏览器会根据自己的行为去理解网页，即 ie 浏览器会采用 ie 盒子模型去解释你的盒子，而 ff 会采用标准 w3c 盒子模型解释你的盒子，所以网页在不同的浏览器中就显示的不一样了。反之，假如加上了 doctype 声明，那么所有浏览器都会采用标准 w3c 盒子模型去解释你的盒子，网页就能在各个浏览器中显示一致了。
+			</div>
+		</div>
+	</div>
+	
+	<!-- 将js文件放到最后加载，会使得网页的响应速度更快 -->
+	<link rel="stylesheet" type="text/css" href="assets/js/jquery.min.js">
+	<link rel="stylesheet" type="text/css" href="assets/js/bootstrap.min.js">
+</body>
+</html>

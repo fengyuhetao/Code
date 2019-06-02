@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+
+	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap-theme.min.css">
+
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<title>bootstrap</title>
+</head>
+<body style="padding: 50px; background-color: #ccc">
+	<div class="container" style="padding: 50px; background: white">
+		<h2 class="page-header">按钮组</h2>
+		<div class="btn-group">
+			<button type="button" class="btn btn-primary">left</button>
+			<button type="button" class="btn btn-warning">Center</button>
+			<button type="button" class="btn btn-success">right</button>
+		</div>
+		<!-- <div class="dropdown">
+	  		<button class="btn dropdown-toggle sr-only" type="button" id="dropdownMenu1" data-toggle="dropdown">
+	    		Dropdownsdsdsd
+	    		<span class="caret"></span>
+	  		</button>
+		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+		    <li role="presentation" class="divider"></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+		  </ul>
+		</div> -->
+		<h2 class="page-header">下拉菜单</h2>
+		<div class="btn-group">
+			<button class="btn btn-danger">PHP课程体系</button>
+			<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+				<!-- 这个地方存在点问题 -->
+				&nbsp;<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a href="#">HTML</a></li>
+				<li><a href="#">CSS</a></li>
+				<li><a href="#">PHP</a></li>
+				<li class="divider"></li>
+				<li><a href="#">JS</a></li>
+			</ul>
+		</div>
+
+		<!-- 浮动和清除的应用 -->
+		<h2 class="page-header">浮动和清除的应用</h2>
+		<div style="border: 1px solid red; width: 350px;" class="clearfix bg-danger">
+			<ul class="list-unstyled">
+				<li class="pull-left" style="padding: 10px;">
+					<a href="#">
+						<img width="142" height="88" src="assets/images/card.png">
+					</a>
+					<br/>
+					<a href="#">
+						挑来挑去就选你
+					</a>
+				</li>
+				<li class="pull-left" style="padding: 10px;">
+					<a href="#">
+						<img width="142" height="88" src="assets/images/card.png">
+					</a>
+					</br>
+					<a href="#">
+						挑来挑去就选你
+					</a>
+				</li>
+				<li class="pull-left" style="padding: 10px;">
+					<a href="#">
+						<img width="142" height="88" src="assets/images/card.png">
+					</a>
+					<br/>
+					<a href="#">
+						挑来挑去就选你
+					</a>
+				</li>
+				<li class="pull-left" style="padding: 10px;">
+					<a href="#">
+						<img width="142" height="88" src="assets/images/card.png">
+					</a>
+					<br/>
+					<a href="#">
+						挑来挑去就选你
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 图片样式 -->
+		<div>
+			<h2 class="page-header">图片样式应用</h2>
+			<!-- .img-responsive 响应式图片
+				 .img-rounded    圆角图片
+				 .img-circle     原型图片
+				 .img-thumbnail  边框圆角
+				 .center-block   图片居中
+			-->
+			<img width="400" class="img-responsive img-thumbnail center-block" src="assets/images/card.png">
+			<p>你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果你是我的小丫小苹果</p>
+		</div>
+	</div>
+</body>
+</html>
