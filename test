@@ -1,0 +1,78 @@
+private BoolQuery setQueryConditons(
+            AntEcoTinyappDetectDetailQueryModel antEcoTinyappDetectDetailQueryModel) {
+        /** 该列表中存放精确查询的字段名称*/
+        List<String> termQueryFieldName = InspectSearchConstants.TERM_QUERY_FIELD_NAME;
+        BoolQuery boolQuery = new BoolQuery();
+        List<Query> mustQueries = new ArrayList<>();
+
+        List<String> fieldNames = getFiledName(antEcoTinyappDetectDetailQueryModel);
+        for (int i = 0; i < fieldNames.size(); i++) {
+            String fieldValue = (String) getFieldValueByName(fieldNames.get(i),
+                    antEcoTinyappDetectDetailQueryModel);
+            if (!StringUtil.isBlank(fieldValue)) {
+                /* 如果该字段在精确查询字段列表中存在 */
+                if (termQueryFieldName.contains(fieldNames.get(i))) {
+                    mustQueries.add(getTermQuery(fieldNames.get(i), fieldValue));
+                }
+                else {
+                    /* 不存在的话，说明是fuzzy查询 */
+                    mustQueries.add(getMatchQuery(fieldNames.get(i), fieldValue));
+                }
+            }
+        }
+        boolQuery.setMustQueries(mustQueries);
+        return boolQuery;
+    }
+
+    private TermQuery getTermQuery(String fieldName, String fieldValue){
+        TermQuery termQuery = new TermQuery();
+        termQuery.setFieldName(StringUtil.toLowerCaseWithUnderscores(fieldName));
+        termQuery.setTerm(
+                ColumnValue.fromString(fieldValue));
+        return termQuery;
+    }
+
+    private MatchQuery getMatchQuery(String fieldName, String fieldValue) {
+        MatchQuery matchQuery = new MatchQuery();
+        matchQuery.setFieldName(StringUtil.toLowerCaseWithUnderscores(fieldName));
+        matchQuery.setText(fieldValue);
+        return matchQuery;
+    }
+
+    /**
+     * 获取对象中对应参数的值
+     * 目前表中的所有字段均为 string 类型
+     *
+     * @param fieldName
+     * @param object
+     * @return
+     */
+    private static Object getFieldValueByName(String fieldName, Object object) {
+        try {
+            String firstLetter = fieldName.substring(0, 1).toUpperCase();
+            String getter = "get" + firstLetter + fieldName.substring(1);
+            Method method = object.getClass().getMethod(getter);
+            return method.invoke(object);
+        } catch (Exception e) {
+            LoggerUtil.error(LOGGER, "获取对象[{0}] 的参数名为 [{1}] 的值失败，请检查字段名是否正确设置。错误信息: [{2}]", object, fieldName, e);
+            return null;
+        }
+    }
+
+    /**
+     * 获取对象的参数列表 移除`serialVersionUID`
+     *
+     * @param object
+     * @return
+     */
+    private static List<String> getFiledName(Object object) {
+        Field[] fields = object.getClass().getDeclaredFields();
+        List<String> fieldNames = new ArrayList<>();
+        for (int i = 0; i < fields.length; i++) {
+            if ("serialVersionUID".equals(fields[i].getName())) {
+                continue;
+            }
+            fieldNames.add(fields[i].getName());
+        }
+        return fieldNames;
+    }
