@@ -11,7 +11,11 @@ public class StaticInnerClassSingleton {
         private static StaticInnerClassSingleton staticInnerClassSingleton = new StaticInnerClassSingleton();
     }
 
-    private StaticInnerClassSingleton() {}
+    private StaticInnerClassSingleton() {
+        if(InnerClass.staticInnerClassSingleton != null) {
+            throw new RuntimeException("单例模式");
+        }
+    }
 
     public static StaticInnerClassSingleton getInstance() {
         return InnerClass.staticInnerClassSingleton;

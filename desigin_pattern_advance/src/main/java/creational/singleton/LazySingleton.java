@@ -11,9 +11,14 @@ package creational.singleton;
  */
 public class LazySingleton {
     private static LazySingleton lazySingleton = null;
+    private static boolean flag = true;
 
     private LazySingleton() {
-
+        if(flag) {
+            flag = false;
+        } else {
+            throw new RuntimeException("单例");
+        }
     }
 
     public synchronized static LazySingleton getInstance() {
