@@ -1,7 +1,5 @@
 package creational.singleton;
 
-import org.omg.CORBA.TRANSACTION_MODE;
-
 import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -15,12 +13,29 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class Test {
     public static void main(String[] args) throws Exception {
-//        testStaticInnerClassSingleton();
-//        testLazySingletonReflect();
-        testLazySingletonAdvance();
+        testEnumInstanceReflect();
     }
 
-    private static void testLazySingletonAdvance() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
+    private static void testEnumInstanceReflect() throws Exception {
+        Class objectClass = EnumInstance.class;
+        Constructor constructor = objectClass.getDeclaredConstructor(String.class, Integer.class);
+
+        constructor.setAccessible(true);
+        EnumInstance instance = (EnumInstance) constructor.newInstance("haha", 666);
+    }
+
+    private static void testEnumInstance() throws Exception {
+        EnumInstance instance = EnumInstance.getInstance();
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("singletonFile"));
+        oos.writeObject(instance);
+        File file = new File("singletonFile");
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+        EnumInstance newInstance = (EnumInstance) ois.readObject();
+        System.out.println(newInstance.getData());
+        System.out.println(instance.getData());
+    }
+
+    private static void testLazySingletonAdvance() throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException, NoSuchMethodException {
         Class objectClass = LazySingleton.class;
         Constructor constructor = objectClass.getDeclaredConstructor();
         constructor.setAccessible(true);

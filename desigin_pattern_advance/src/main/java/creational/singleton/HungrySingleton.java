@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @package creational.singleton
  * @date 2019-06-16 00:22
  */
-public class HungrySingleton implements Serializable {
+public class HungrySingleton implements Cloneable, Serializable {
     private static final long serialVersionUID = -8913520554911894164L;
 
     private final static HungrySingleton hungrySingleton;
@@ -29,5 +29,11 @@ public class HungrySingleton implements Serializable {
 
     private Object readResolve() {
         return hungrySingleton;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+//        如果是单例模式，实现clone接口，需要注意该方法
+        return getInstance();
     }
 }
